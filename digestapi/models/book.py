@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
 class Book(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="books_created")
     title = models.CharField(max_length=200)
@@ -13,3 +12,4 @@ class Book(models.Model):
         through='BookCategory',
         related_name="books"
     )
+    publication_date = models.DateField(null=True, blank=True)
